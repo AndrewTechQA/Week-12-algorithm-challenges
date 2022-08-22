@@ -56,8 +56,8 @@ console.log(longestWord("I love to rock and Codemify"), '- is the longers word')
 
 //  2. Find users with duplicated email in the users object and put them in array
 
-dupliMails = users.reduce((m, { email }) => m.set(email, m.has(email)), new Map),
-    duplications = users.filter(({ email }) => dupliMails.get(email));
+dupliMails = users.reduce((user, {email}) => user.set(email, user.has(email)), new Map),
+duplications = users.filter(({email}) => dupliMails.get(email));
 
 console.log("Duplicated eMails:", duplications);
 
@@ -65,7 +65,7 @@ console.log("Duplicated eMails:", duplications);
 
 //  3. Find the youngest user in users object
 
-const young = users.reduce(function (a, b) {
+const young = users.reduce(function(a, b) {
   return b.age < a.age ? b : a;
 });
 
